@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CALL BOY SERVICE LTD – PM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff2e63;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 10px;
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 5px;
+      font-size: 1em;
+    }
+    button {
+      background: #ff2e63;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #ff4e7a;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+    a {
+      color: #ff2e63;
+    }
+  </style>
+</head>
+<body>
+  <h2>CALL BOY SERVICE LTD – PM</h2>
+  <form id="recruitmentForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" required />
+
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" required />
+
+    <label for="height">Height & Body Type</label>
+    <input type="text" id="height" name="height" required />
+
+    <label for="experience">Experience</label>
+    <input type="text" id="experience" name="experience" />
+
+    <label for="facephoto">Face Photo</label>
+    <input type="file" id="facephoto" name="facephoto" accept="image/*" required />
+
+    <label for="bodyphoto">Body Photo (optional)</label>
+    <input type="file" id="bodyphoto" name="bodyphoto" accept="image/*" />
+
+    <label for="timeslot">Available Time Slots</label>
+    <input type="text" id="timeslot" name="timeslot" required />
+
+    <label for="payment">Preferred Payment Method</label>
+    <select id="payment" name="payment" required>
+      <option value="Bkash">Bkash</option>
+      <option value="Nagad">Nagad</option>
+      <option value="Binance">Binance</option>
+      <option value="Bybit">Bybit</option>
+    </select>
+
+    <label for="package">Which package should you register for:</label>
+    <select id="package" name="package" required>
+      <option value="3 Months - Normal">3 Months (Normal)</option>
+      <option value="8 Months - Normal + VIP">8 Months (Normal + VIP)</option>
+      <option value="1.5 Year - VIP">1.5 Year (VIP)</option>
+      <option value="Lifetime - All Premium">Lifetime (All Premium)</option>
+    </select>
+
+    <label for="reason">Why should we select you?</label>
+    <textarea id="reason" name="reason" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="footer">
+    Contact Telegram: <a href="https://t.me/ariyan9087" target="_blank">@ariyan9087</a>
+  </div>
+
+  <script>
+    const form = document.getElementById('recruitmentForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const location = document.getElementById('location').value;
+      const height = document.getElementById('height').value;
+      const experience = document.getElementById('experience').value;
+      const timeslot = document.getElementById('timeslot').value;
+      const payment = document.getElementById('payment').value;
+      const packageType = document.getElementById('package').value;
+      const reason = document.getElementById('reason').value;
+
+      const message = `📥 NEW FORM SUBMISSION\n👤 Name: ${name}\n🎂 Age: ${age}\n📍 Location: ${location}\n📏 Height/Body: ${height}\n📘 Experience: ${experience}\n⏰ Time Slot: ${timeslot}\n💳 Payment: ${payment}\n🎖️ Package: ${packageType}\n📌 Reason: ${reason}`;
+
+      const botToken = "7563968766:AAF1GcD3gU77YZH6pyFNcMRIGMPkM-YJIYE";
+      const chatId = "6943102954";
+      const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+      fetch(telegramURL)
+        .then(response => {
+          if (response.ok) {
+            alert("✅ Thank you! Your form has been submitted.");
+            form.reset();
+            window.location.href = "https://t.me/callboy_agency";
+          } else {
+            alert("❌ Failed to submit. Please try again.");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("⚠️ Something went wrong.");
+        });
+    });
+  </script>
+</body>
+</html>
