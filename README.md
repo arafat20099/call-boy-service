@@ -7,6 +7,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
+    <style>
+
+/* পুরো পেজ কালো */
+body {
+  background: black;
+  font-family: Arial, sans-serif;
+}
+
+/* সব input box */
+input, textarea, select {
+  background: white;
+  color: black;
+  border: 2px solid red;
+  padding: 12px;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+/* focus করলে glow */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 10px red;
+  border-color: red;
+}
+
+/* label লেখা */
+label {
+  color: white;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+</style>
     body {
       margin:0;
       padding:0;
